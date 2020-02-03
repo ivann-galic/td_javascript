@@ -1,50 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<link rel="stylesheet" href="style.css" />
+	<title>TD II</title>
 </head>
 <body>
 
-	<form onsubmit="return false;">
-		<label>Entrer un nombre:</label>
-		<input id="data" type="text"/></form><br>
+	<div class="container">
+		<div class="card">
+			<form onsubmit="return false;">
+				<label>Entrer un nombre :</label>
+				<input id="data" type="text"/></form><br>
 
-		<input type="button" name="bouton" value="Recommencer">
-		<button onclick="compare(numberEnter,random);">Envoyer</button>
-
-	</form>
+				<input id="submit-btn" type="button" value="Envoyer" onclick="play();">
+				<input type="button" name="bouton" value="Recommencer">
+			</form>
+		</div>
+	</div>
 
 	<script type="text/javascript">
-		var random = Math.random() *100;
-		function send(event) {
-			var numberEnter = document.getElementById('data').value;
+
+    function randomNb(min, max) {
+     return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    let nombreAleatoire = randomNb(1, 100);
+		console.log(nombreAleatoire)
+
+		function play() {
+		    let entry = document.getElementById('data').value
+		    console.log(nombreAleatoire);
+
+		    if(typeof entry != 'number'){
+		        console.log("Erreur : veuillez saisir un nombre.");
+		    }
+
+		    if (nombreAleatoire != entry) {
+		        if (nombreAleatoire < entry){
+		            console.log("C'est plus petit !");
+		        }else if (nombreAleatoire > entry){
+		            console.log("C'est plus grand !");
+		        }
+		    }
+
+		    if(nombreAleatoire == entry){
+		        console.log("Gagné !");
+		    }
 		}
 
-		function compare(numberEnter, random){
-			if(typeof numberEnter != 'number'){
-				console.log("Error ! ce n'est pas un nombre");
-			}
-			else{
-				if(numberEnter == random){
-					console.log("Gagné !")
-				}
-				else{
-					console.log("Perdu !");
-					if(numberEnter < random){
-						console.log("c'est plus petit");
-					}
-					if(numberEnter > random){
-						console.log("c'est plus grand");
-					}
-				}
-			}
-			
+  </script>
 
-		}
-		console.log('Le nombre à trouver by Ivann, Bryan, Yuyuan');
-
-
-	</script>
-
+	<footer>
+			<p class="footer-text">"Le nombre à trouver" by Ivann, Bryan, Yuyuan<p>
+	</footer
 </body>
 </html>

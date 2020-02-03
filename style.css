@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+}
+
+body {
+		overflow: hidden;
+		font-family: Roboto, sans-serif;
+}
+
+.card {
+	width: 400px;
+	height: 100px;
+	background-color: #42a5f5;
+	margin-top: 200px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 50px;
+	text-align: center;
+	border-radius: 6px;
+}
+#submit-btn {
+	margin-right: 10px;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: whitesmoke;
+}
+
+.footer-text {
+	text-align: center;
+	letter-spacing: 1px;
+}
+
+label {
+	margin-right: 10px;
+	color: #fff;
+}
