@@ -1,5 +1,9 @@
 let myTable = ["rock", "scissors", "paper"];
 
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function playerRock() {
   document.getElementById("player-image").innerHTML='<img src="imgs/hand-rock-solid.svg" alt="paper">';
 
@@ -51,7 +55,7 @@ function playerPaper() {
     document.getElementById("result-text").innerHTML ="Egalité !";
   }
   if(iaChoice === "rock") {
-    document.getElementById("ia-image").innerHTML ='<img src="imgs/hand-rock-solid.svg" alt="rock">>';
+    document.getElementById("ia-image").innerHTML ='<img src="imgs/hand-rock-solid.svg" alt="rock">';
     document.getElementById("result-text").innerHTML ="Gagné !";
   }
   if(iaChoice === "rock") {
@@ -60,7 +64,8 @@ function playerPaper() {
   }
 }
 
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+function restart() {
+  document.getElementById("ia-image").innerHTML ="";
+  document.getElementById("player-image").innerHTML="";
 }
 

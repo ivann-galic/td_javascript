@@ -6,6 +6,11 @@
 body {
 		overflow: hidden;
 		font-family: Roboto, sans-serif;
+        background-color: black;
+}
+
+#result-text {
+  color: white;
 }
 
 .timer-card {
