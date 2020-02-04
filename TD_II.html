@@ -20,8 +20,8 @@
 		<div class="card-game">
 			<p id="instructions"></p>
 		</div>
-		<div class="card-game">
-			<p> numéro à trouver </p>
+		<div class="info">
+			<p>Nombres trouvés / Tentatives :</p>
 			<p id="stockage"></p>
 		</div>
 	</div>
@@ -37,7 +37,6 @@
     let myRandom = randomNb(101);
 		console.log (myRandom);
 		var myTable = [];
-		//myTable.push([myRandom,counter]);
 
 		function play() {
 
@@ -57,17 +56,23 @@
 		    if(myRandom == entry){
 		        document.getElementById("instructions").innerHTML ="Gagné !";
 					console.log(myRandom);
+					if (myTable.length == 5) {
+						myTable.shift();
+					}
 					myTable.push([myRandom,counter]);
-					document.getElementById("stockage").innerHTML = myTable;
+					document.getElementById("info").innerHTML = myTable;
 					win = true;
 		    }
 		}
 
 		function restart() {
 			if (win != true) {
+				if (myTable.length == 5) {
+					myTable.shift();
+				}
 				myTable.push([-1,counter]);
 				document.getElementById("instructions").innerHTML ="Perdu !";
-				document.getElementById("stockage").innerHTML = myTable;
+				document.getElementById("info").innerHTML = myTable;
 			}
 			myRandom = randomNb(101);
 			console.log (myRandom);
