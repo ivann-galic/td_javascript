@@ -10,7 +10,7 @@
 	<div class="container">
 		<div class="card">
 			<form>
-				<label>Entrer un nombre :</label>
+				<label>Entrez un nombre :</label>
 				<input id="data" type="number"/></form><br>
 
 				<input id="submit-btn" type="button" value="Envoyer" onclick="play();">
@@ -28,10 +28,14 @@
      return Math.floor(Math.random() * max);
     }
 
+		let counter = 0;
     let myRandom = randomNb(101);
 		console.log (myRandom);
 
 		function play() {
+
+				counter++;
+				console.log(counter);
 		    let entry = document.getElementById('data').value;
 		    console.log(myRandom);
 
@@ -50,6 +54,7 @@
 		}
 
 		function restart() {
+			counter = 0;
 			document.getElementById("instructions").innerHTML ="Perdu !";
 			myRandom = randomNb(101);
 			console.log (myRandom);
