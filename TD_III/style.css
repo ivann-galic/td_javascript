@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+}
+
+body {
+		overflow: hidden;
+		font-family: Roboto, sans-serif;
+}
+button {
+  font-size: 50px;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: whitesmoke;
+}
+
+.footer-text {
+	text-align: center;
+	letter-spacing: 1px;
+}
+
+label {
+	margin-right: 10px;
+}
