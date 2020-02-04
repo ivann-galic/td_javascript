@@ -69,3 +69,8 @@ function restart() {
   document.getElementById("player-image").innerHTML="";
 }
 
+function displayName() {
+  let entry = document.getElementById('data').value;
+  document.getElementById("name").innerHTML=entry;
+}
+
