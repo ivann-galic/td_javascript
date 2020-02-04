@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="js/app.js"></script>
 	<link rel="stylesheet" href="style.css" />
 	<title>TD II</title>
 </head>
@@ -10,40 +11,36 @@
 		<div class="card">
 			<form onsubmit="return false;">
 				<label>Entrer un nombre :</label>
-				<input id="data" type="text"/></form><br>
+				<input id="data" type="number"/></form><br>
 
 				<input id="submit-btn" type="button" value="Envoyer" onclick="play();">
-				<input type="button" name="bouton" value="Recommencer">
+				<input type="button" name="bouton" value="Recommencer" onclick="restart();">
 			</form>
 		</div>
 	</div>
 
 	<script type="text/javascript">
 
-    function randomNb(min, max) {
-     return Math.floor(Math.random() * (max - min + 1)) + min;
+    function randomNb(max) {
+     return Math.floor(Math.random() * max);
     }
 
-    let nombreAleatoire = randomNb(1, 100);
-		console.log(nombreAleatoire)
+    let nombreAleatoire = randomNb(101);
+		console.log(nombreAleatoire);
 
 		function play() {
-		    let entry = document.getElementById('data').value
+		    let entry = document.getElementById('data').value;
 		    console.log(nombreAleatoire);
 
-		    if(typeof entry != 'number'){
-		        console.log("Erreur : veuillez saisir un nombre.");
-		    }
-
-		    if (nombreAleatoire != entry) {
-		        if (nombreAleatoire < entry){
+		    if (randomNb != entry) {
+		        if (randomNb < entry){
 		            console.log("C'est plus petit !");
-		        }else if (nombreAleatoire > entry){
+		        }else if (randomNb > entry){
 		            console.log("C'est plus grand !");
 		        }
 		    }
 
-		    if(nombreAleatoire == entry){
+		    if(randomNb == entry){
 		        console.log("Gagné !");
 		    }
 		}
