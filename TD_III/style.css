@@ -24,7 +24,7 @@ body {
   min-width: 150px;
   background-color: #424242;
   position: absolute;
-  top: 30%;
+  top: 25%;
   left: 5%;
   color: white;
   border-radius: 5px;
@@ -72,19 +72,16 @@ body {
   margin-top: 45px;
 }
 
-#ia-image {
-  font-size: 150px;
-  line-height: 190px;
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #424242;
-}
-
 .col-2 {
   width: 400px;
   height: 60%;
   background-color: white;
   float: right;
+}
+
+#ia-image img {
+  height: 150px;
+  margin-top: 20px;
 }
 
 .player-section {
@@ -98,12 +95,9 @@ body {
   margin-top: 45px;
 }
 
-#player-image {
-  font-size: 150px;
-  line-height: 190px;
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #424242;
+#player-image img {
+  height: 150px;
+  margin-top: 20px;
 }
 
 .col-3 {
@@ -132,6 +126,10 @@ body {
   width: 800px;
   height: 60px;
   float: right;
+}
+
+.name-form {
+  margin-bottom: 40px;
 }
 
 .col-5 {

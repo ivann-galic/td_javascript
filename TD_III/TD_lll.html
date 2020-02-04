@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css" />
@@ -29,13 +29,13 @@
   <div class="container">
     <div class="card">
       <div class="col-1">
-        <div class="ia-section">
-          <p id="ia-image"><i class="fas fa-hand-paper"></i></p>
+        <div id="ia-image" class="ia-section">
+
         </div>
       </div>
       <div class="col-2">
-        <div class="player-section">
-          <p id="player-image"><i class="fas fa-hand-scissors"></i></p>
+        <div id="player-image" class="player-section">
+
         </div>
       </div>
       <div class="col-3">
@@ -47,26 +47,26 @@
           </div>
       </div>
       <div class="col-4">
-              <p id="result-text">Gagné !</p>
+              <p id="result-text"></p>
       </div>
       <div class="col-5">
-        <div>
+        <div class="name-form">
           <form>
             <label class="label">Entrer votre nom :</label>
-            <input id="data" type="string"/></form><br>
+            <input id="data" type="string"/>
           </form>
+
         </div>
         <div>
-          <form>
-            <button><i class="fas fa-hand-paper"></i></button>
-            <button><i class="fas fa-hand-rock"></i></button>
-            <button><i class="fas fa-hand-scissors"></i></button>
-            <button onclick="restart();"><i class="fas fa-redo-alt"></i></button>
-          </form>
+            <button onclick="playerPaper(); battle();"><i class="fas fa-hand-paper"></i></button>
+            <button onclick="playerRock(); battle();"><i class="fas fa-hand-rock"></i></button>
+            <button onclick="playerScissors(); battle();"><i class="fas fa-hand-scissors"></i></button>
+            <button onclick="restart()"><i class="fas fa-redo-alt"></i></button>
         </div>
       </div>
     </div>
-  <div>
+  </div>
+
 
   <footer>
       <p class="footer-text">"Pierre, Feuille, Ciseaux by" by Ivann, Bryan, Yuyuan<p>
