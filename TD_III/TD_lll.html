@@ -9,22 +9,68 @@
 </head>
 <body>
 
+  <div class="timer-card"></div>
 
+  <div class="infos-card">
+    <div>
+        <p>Joueur :</p>
+        <p id="name"></p>
+    </div>
+    <div>
+        <p>Tour n° :</p>
+        <p id="nb-turns"></p>
+    </div>
+    <div>
+        <p>5 best scores :</p>
+        <p id="score"></p>
+    </div>
+  </div>
 
-	<form>
-		<label>Entrer votre nom :</label>
-		<input id="data" type="string"/></form><br>
-		<button><i class="fas fa-hand-paper"></i></button>
-    <button><i class="fas fa-hand-rock"></i></button>
-    <button><i class="fas fa-hand-scissors"></i></button>
+  <div class="container">
+    <div class="card">
+      <div class="col-1">
+        <div class="ia-section">
+          <p id="ia-image"><i class="fas fa-hand-paper"></i></p>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="player-section">
+          <p id="player-image"><i class="fas fa-hand-scissors"></i></p>
+        </div>
+      </div>
+      <div class="col-3">
+          <div>
+              <p id="ia-text">IA</p>
+          </div>
+          <div>
+              <p id="player-text">JOUEUR</p>
+          </div>
+      </div>
+      <div class="col-4">
+              <p id="result-text">Gagné !</p>
+      </div>
+      <div class="col-5">
+        <div>
+          <form>
+            <label class="label">Entrer votre nom :</label>
+            <input id="data" type="string"/></form><br>
+          </form>
+        </div>
+        <div>
+          <form>
+            <button><i class="fas fa-hand-paper"></i></button>
+            <button><i class="fas fa-hand-rock"></i></button>
+            <button><i class="fas fa-hand-scissors"></i></button>
+            <button onclick="restart();"><i class="fas fa-redo-alt"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  <div>
 
-    <button onclick="restart();"><i class="fas fa-redo-alt"></i></button>
-
-	</form>
-
-    <footer>
-        <p class="footer-text">"Pierre, Feuille, Ciseaux by" by Ivann, Bryan, Yuyuan<p>
-    </footer>
+  <footer>
+      <p class="footer-text">"Pierre, Feuille, Ciseaux by" by Ivann, Bryan, Yuyuan<p>
+  </footer>
 
 </body>
 </html>
