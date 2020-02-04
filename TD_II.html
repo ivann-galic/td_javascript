@@ -29,8 +29,12 @@
     }
 
 		let counter = 0;
+		let win = false;
     let myRandom = randomNb(101);
 		console.log (myRandom);
+		var myTable = [];
+		//[[0,0],[0,0],[0,0],[0,0],[0,0]]
+		//myTable.push([myRandom,counter]);
 
 		function play() {
 
@@ -50,14 +54,22 @@
 		    if(myRandom == entry){
 		        document.getElementById("instructions").innerHTML ="Gagné !";
 						console.log(myRandom);
+						myTable[0].push(counter);
+						myTable[][1].push(random);
+						win = true;
 		    }
 		}
 
 		function restart() {
-			counter = 0;
-			document.getElementById("instructions").innerHTML ="Perdu !";
+			if (win != true) {
+				myTable[0].push(-1);
+				myTable[1].push(random);
+				document.getElementById("instructions").innerHTML ="Perdu !";
+			}
 			myRandom = randomNb(101);
 			console.log (myRandom);
+			counter = 0;
+			console.log(counterTable);
 		}
 
   </script>
