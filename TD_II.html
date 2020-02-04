@@ -9,13 +9,16 @@
 
 	<div class="container">
 		<div class="card">
-			<form onsubmit="return false;">
+			<form>
 				<label>Entrer un nombre :</label>
 				<input id="data" type="number"/></form><br>
 
 				<input id="submit-btn" type="button" value="Envoyer" onclick="play();">
 				<input type="button" name="bouton" value="Recommencer" onclick="restart();">
 			</form>
+		</div>
+		<div class="card-game">
+			<p id="instructions"></p>
 		</div>
 	</div>
 
@@ -26,7 +29,7 @@
     }
 
     let nombreAleatoire = randomNb(101);
-		console.log(nombreAleatoire);
+		console.log (nombreAleatoire);
 
 		function play() {
 		    let entry = document.getElementById('data').value;
@@ -34,15 +37,22 @@
 
 		    if (randomNb != entry) {
 		        if (randomNb < entry){
-		            console.log("C'est plus petit !");
+		            document.getElementById("instructions").innerHTML ="C'est plus petit !";
 		        }else if (randomNb > entry){
-		            console.log("C'est plus grand !");
+		            document.getElementById("instructions").innerHTML ="C'est plus grand !";
 		        }
 		    }
 
 		    if(randomNb == entry){
-		        console.log("Gagné !");
+		        document.getElementById("instructions").innerHTML ="Gagné !";
+						console.log("ok");
 		    }
+		}
+
+		function restart() {
+			document.getElementById("instructions").innerHTML ="Perdu !";
+			nombreAleatoire = randomNb(101);
+			console.log (nombreAleatoire);
 		}
 
   </script>
