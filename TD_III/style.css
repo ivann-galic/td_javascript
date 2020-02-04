@@ -8,24 +8,24 @@ body {
 		font-family: Roboto, sans-serif;
 }
 
-
 .timer-card {
-  height: 70px;
+  height: 90px;
   width: 150px;
-  background-color: #424242;
+  background-color: #757575;
   position: absolute;
   top: 15%;
   left: 5%;
   color: white;
   border-radius: 5px;
+  text-align: center;
 }
 
 .infos-card {
   height: 300px;
   min-width: 150px;
-  background-color: #424242;
+  background-color: #757575;
   position: absolute;
-  top: 25%;
+  top: 29%;
   left: 5%;
   color: white;
   border-radius: 5px;
@@ -53,28 +53,27 @@ body {
 	margin-right: auto;
 	text-align: center;
 	letter-spacing: 1px;
-  font-size: 20px;
+    font-size: 20px;
 	border-radius: 6px;
 }
 
 .col-1 {
-  width: 399px;
+  width: 400px;
   height: 60%;
   background-color: white;
   float: left;
   margin-top: 0;
-  border-right: 1px dotted grey;
 }
 
 .ia-section {
-  height: 190px;
-  width: 190px;
-  border: 1px solid #cfcfcf;
+  height: 210px;
+  width: 210px;
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  margin-top: 45px;
+  margin-top: 35px;
+  background-color: #81d4fa;
 }
 
 .col-2 {
@@ -85,24 +84,24 @@ body {
 }
 
 #ia-image img {
-  height: 150px;
-  margin-top: 20px;
+  height: 160px;
+  margin-top: 30px;
 }
 
 .player-section {
-  height: 190px;
-  width: 190px;
-  border: 1px solid #cfcfcf;
+  height: 210px;
+  width: 210px;
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  margin-top: 45px;
+  margin-top: 35px;
+  background-color: #81d4fa;
 }
 
 #player-image img {
-  height: 150px;
-  margin-top: 20px;
+  height: 160px;
+  margin-top: 30px;
 }
 
 .col-3 {
@@ -110,6 +109,7 @@ body {
   height: 40px;
   float: right;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .col-3 div {
@@ -117,8 +117,9 @@ body {
   height: 40px;
   margin: 0;
   display: inline-block;
-  background-color: #81d4fa;
+  background-color: #757575;
   border-radius: 5px;
+  color: white;
 }
 
 #ia-text, #player-text {
@@ -149,7 +150,7 @@ button {
   margin-left: 20px;
   margin-right: 20px;
   border: 0;
-	background-color: #81d4fa;
+  background-color: #81d4fa;
   border-radius: 5px;
   color: #424242;
 }
