@@ -28,31 +28,31 @@
      return Math.floor(Math.random() * max);
     }
 
-    let nombreAleatoire = randomNb(101);
-		console.log (nombreAleatoire);
+    let myRandom = randomNb(101);
+		console.log (myRandom);
 
 		function play() {
 		    let entry = document.getElementById('data').value;
-		    console.log(nombreAleatoire);
+		    console.log(myRandom);
 
-		    if (randomNb != entry) {
-		        if (randomNb < entry){
+		    if (myRandom != entry) {
+		        if (myRandom < entry){
 		            document.getElementById("instructions").innerHTML ="C'est plus petit !";
-		        }else if (randomNb > entry){
+		        }else if (myRandom > entry){
 		            document.getElementById("instructions").innerHTML ="C'est plus grand !";
 		        }
 		    }
 
-		    if(randomNb == entry){
+		    if(myRandom == entry){
 		        document.getElementById("instructions").innerHTML ="Gagné !";
-						console.log("ok");
+						console.log(myRandom);
 		    }
 		}
 
 		function restart() {
 			document.getElementById("instructions").innerHTML ="Perdu !";
-			nombreAleatoire = randomNb(101);
-			console.log (nombreAleatoire);
+			myRandom = randomNb(101);
+			console.log (myRandom);
 		}
 
   </script>
