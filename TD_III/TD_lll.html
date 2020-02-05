@@ -20,7 +20,35 @@
 
     <button onclick="restart();"><i class="fas fa-redo-alt"></i></button>
 
+    <div id="dispo">
+    </div>
+
 	</form>
+
+    <script type="text/javascript">
+
+        function randomNb(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        let mancheCounter = 0;
+        let myRandom = randomNb(3);
+        console.log (myRandom);
+
+
+        function play() {
+            mancheCounter++
+        }
+
+        function restart() {
+        document.getElementById("dispo").innerHTML ="Perdu !";
+        myRandom = randomNb(3);
+        console.log (myRandom);
+        mancheCounter = 0;
+
+        }
+
+    </script>
 
     <footer>
         <p class="footer-text">"Pierre, Feuille, Ciseaux by" by Ivann, Bryan, Yuyuan<p>
