@@ -1,131 +1,116 @@
 @font-face {
-    font-family: 'Roboto', sans-serif;
-    src: url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+	font-family: 'Roboto', sans-serif;
+	src: url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 }
-
 body {
-		overflow: hidden;
-		font-family: Roboto, sans-serif;
+	overflow: hidden;
+	font-family: Roboto, sans-serif;
 }
-
 .timer-card {
-  height: 90px;
-  width: 150px;
-  background-color: #757575;
-  position: absolute;
-  top: 15%;
-  left: 5%;
-  color: white;
-  border-radius: 5px;
-  text-align: center;
+	height: 90px;
+	width: 150px;
+	background-color: #757575;
+	position: absolute;
+	top: 110px;
+	left: 5%;
+	color: white;
+	border-radius: 5px;
+	text-align: center;
 }
-
 .infos-card {
-  height: 300px;
-  min-width: 150px;
-  background-color: #757575;
-  position: absolute;
-  top: 29%;
-  left: 5%;
-  color: white;
-  border-radius: 5px;
-  text-align: center;
+	height: 300px;
+	min-width: 150px;
+	background-color: #757575;
+	position: absolute;
+	top: 250px;
+	left: 5%;
+	color: white;
+	border-radius: 5px;
+	text-align: center;
 }
-
 #name {
-  text-transform: uppercase;
+	text-transform: uppercase;
 }
-
 .infos-card div {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
-
 .container{
-  width: 100%;
+	width: 100%;
 }
-
 .card {
 	width: 800px;
 	height: 460px;
-	margin-top: 100px;
+	margin-top: 70px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 	letter-spacing: 1px;
-    font-size: 20px;
+	font-size: 20px;
 	border-radius: 6px;
 }
-
 .col-1 {
-  width: 400px;
-  height: 60%;
-  background-color: white;
-  float: left;
-  margin-top: 0;
+	width: 400px;
+	height: 60%;
+	background-color: white;
+	float: left;
+	margin-top: 0;
 }
-
 .ia-section {
-  height: 210px;
-  width: 210px;
-  border-radius: 5px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  margin-top: 35px;
-  background-color: #81d4fa;
+	height: 210px;
+	width: 210px;
+	border-radius: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	margin-top: 35px;
+	background-color: #81d4fa;
 }
-
 .col-2 {
-  width: 400px;
-  height: 60%;
-  background-color: white;
-  float: right;
+	width: 400px;
+	height: 60%;
+	background-color: white;
+	float: right;
 }
-
 #ia-image img {
-  height: 160px;
-  margin-top: 30px;
+	height: 160px;
+	margin-top: 30px;
 }
-
 .player-section {
-  height: 210px;
-  width: 210px;
-  border-radius: 5px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  margin-top: 35px;
-  background-color: #81d4fa;
+	height: 210px;
+	width: 210px;
+	border-radius: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	margin-top: 35px;
+	background-color: #81d4fa;
 }
-
 #player-image img {
-  height: 160px;
-  margin-top: 30px;
+	height: 160px;
+	margin-top: 30px;
 }
-
 .col-3 {
-  width: 800px;
-  height: 40px;
-  float: right;
-  margin-bottom: 20px;
-  margin-top: 20px;
+	width: 800px;
+	height: 40px;
+	float: right;
+	margin-bottom: 20px;
+	margin-top: 20px;
 }
-
 .col-3 div {
-  width: 397px;
-  height: 40px;
-  margin: 0;
-  display: inline-block;
-  background-color: #757575;
-  border-radius: 5px;
-  color: white;
+	width: 350px;
+	height: 40px;
+	margin: 0;
+	display: inline-block;
+	background-color: #757575;
+	border-radius: 5px;
+	color: white;
 }
 
 #ia-text, #player-text {
-  margin: 0;
+  margin: 20px;
   font-size: 20px;
-  line-height: 40px;
+  line-height: 5px;
 }
 
 .col-4 {

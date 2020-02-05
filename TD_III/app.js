@@ -1,13 +1,15 @@
 let myTable = ["rock", "scissors", "paper"];
 let histTable = [];
 let count = 0;
-
+var myTimer;
+var timeleft;
 function timer() {
-  let timeleft = 3;
-  let myTimer = setInterval(function(){
+  timeleft = 3;
+  clearInterval(myTimer);
+  myTimer = setInterval(function(){
     document.getElementById("time").innerHTML = timeleft;
     timeleft -= 1;
-    if(timeleft < 0){
+    if(timeleft < 0 ){
       clearInterval(myTimer);
       document.getElementById("time").innerHTML = "Fini !"
       restart();
@@ -40,6 +42,7 @@ function playerRock() {
     if(iaChoice === "paper") {
       document.getElementById("ia-image").innerHTML ='<img src="imgs/hand-paper-solid.png" alt="paper">';
       document.getElementById("result-text").innerHTML ="Perdu !";
+      restart();
     }
   }
     histTable.push(iaRandom);
@@ -71,6 +74,7 @@ function playerScissors() {
     if (iaChoice === "rock") {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-rock-solid.png" alt="rock">';
       document.getElementById("result-text").innerHTML = "Perdu !";
+      restart();
     }
   }
 
@@ -110,6 +114,7 @@ function playerPaper() {
     if (iaChoice === "rock") {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-scissors-solid.png" alt="scissors">';
       document.getElementById("result-text").innerHTML = "Perdu !";
+      restart();
     }
   }
 
