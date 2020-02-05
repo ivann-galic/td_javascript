@@ -1,8 +1,11 @@
 let myTable = ["rock", "scissors", "paper"];
-let histTable = [];
+let entry;
 let count = 0;
 var myTimer;
 var timeleft;
+var tableScore= [];
+let hist;
+
 function timer() {
   timeleft = 3;
   clearInterval(myTimer);
@@ -23,10 +26,16 @@ function random(min, max) {
 
 function playerRock() {
   document.getElementById("player-image").innerHTML='<img src="imgs/hand-rock-solid.png" alt="paper">';
+  count++;
+  document.getElementById("nb-turns").innerHTML=count + " / 42";
 
   var iaRandom = random(0,2);
-
   let iaChoice = myTable[iaRandom];
+
+    while (iaChoice === hist) {
+    iaRandom = random(0,2);
+    iaChoice = myTable[iaRandom];
+  }
 
   if(count === 42) {
     document.getElementById("result-text").innerHTML ="Perdu !";
@@ -46,7 +55,6 @@ function playerRock() {
     }
   }
   hist = iaChoice;
-    document.getElementById("nb-turns").innerHTML=count + " / 42";
 }
 
 
@@ -58,6 +66,11 @@ function playerScissors() {
 
   var iaRandom = random(0,2);
   let iaChoice = myTable[iaRandom];
+
+  while (iaChoice === hist) {
+    iaRandom = random(0,2);
+    iaChoice = myTable[iaRandom];
+  }
 
   if(count === 42) {
     document.getElementById("result-text").innerHTML ="Perdu !";
@@ -77,34 +90,28 @@ function playerScissors() {
       lost();
     }
   }
-
   hist = iaChoice;
 }
 
 function playerPaper() {
   document.getElementById("player-image").innerHTML='<img src="imgs/hand-paper-solid.png" alt="paper">';
+  count++;
   document.getElementById("nb-turns").innerHTML=count + " / 42";
 
   var iaRandom = random(0,2);
   var iaChoice = myTable[iaRandom];
 
-  if (histTable.length > 0){
-    var index = histTable.length - 1;
-    if (iaChoice === histTable[index]) {
-      do {
-        iaRandom = random(0,2);
-        iaChoice = myTable[iaRandom];
-      } while (iaChoice === histTable[index]);
+  while (iaChoice === hist) {
+      iaRandom = random(0,2);
+      iaChoice = myTable[iaRandom];
     }
-
-  }
 
   if(count === 42) {
     document.getElementById("result-text").innerHTML ="Perdu !";
   } else {
     if (iaChoice === "paper") {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-paper-solid.png" alt="paper">';
-      document.getElementById("result-text").innerHTML = "Egalité !";
+      document.getElementById("result-text").innerHTML = "Egalité !"
     }
     if (iaChoice === "rock") {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-rock-solid.png" alt="rock">';
@@ -116,8 +123,7 @@ function playerPaper() {
       lost();
     }
   }
-
-  hist = iaChoice;
+    hist = iaChoice;
 }
 
 function restart() {
@@ -135,7 +141,19 @@ function lost() {
 }
 
 function displayName() {
-  let entry = document.getElementById('data').value;
+  entry = document.getElementById('data').value;
   document.getElementById("name").innerHTML=entry;
 }
 
+function displayBestScore(){
+      var html = '<div>';
+      for (let result of tableScore){
+        html += '<div>';
+        html += result[0];
+        html += ' / ';
+        html += result[1];
+        html += '</div>';
+      }
+      console.log(tableScore);
+      document.getElementById("score").innerHTML = html;
+}
