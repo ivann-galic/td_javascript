@@ -1,10 +1,10 @@
-let myTable = ["rock", "scissors", "paper"];
-let entry;
-let count = 0;
+var myTable = ["rock", "scissors", "paper"];
+var entry = document.getElementById("data").value;
+var count = 0;
 var myTimer;
 var timeleft;
 var tableScore= [];
-let hist;
+var hist;
 
 function timer() {
   timeleft = 3;
@@ -26,11 +26,10 @@ function random(min, max) {
 
 function playerRock() {
   document.getElementById("player-image").innerHTML='<img src="imgs/hand-rock-solid.png" alt="paper">';
-  count++;
-  document.getElementById("nb-turns").innerHTML=count + " / 42";
 
   var iaRandom = random(0,2);
   let iaChoice = myTable[iaRandom];
+
 
     while (iaChoice === hist) {
     iaRandom = random(0,2);
@@ -43,26 +42,31 @@ function playerRock() {
     if(iaChoice === "rock") {
       document.getElementById("ia-image").innerHTML='<img src="imgs/hand-rock-solid.png" alt="rock">';
       document.getElementById("result-text").innerHTML ="Egalité !";
+      count++;
     }
     if(iaChoice === "scissors") {
       document.getElementById("ia-image").innerHTML ='<img src="imgs/hand-scissors-solid.png" alt="scissors">';
       document.getElementById("result-text").innerHTML ="Gagné !";
+      count++;
     }
     if(iaChoice === "paper") {
       document.getElementById("ia-image").innerHTML ='<img src="imgs/hand-paper-solid.png" alt="paper">';
       document.getElementById("result-text").innerHTML ="Perdu !";
-      lost();
+      tableScore.push([entry,count]);
+      displayBestScore();
+      count = 0;
     }
   }
   hist = iaChoice;
+
+  document.getElementById("nb-turns").innerHTML=count + " / 42";
 }
 
 
 
 function playerScissors() {
   document.getElementById("player-image").innerHTML='<img src="imgs/hand-scissors-solid.png" alt="scissors">';
-  count++;
-  document.getElementById("nb-turns").innerHTML=count + " / 42";
+
 
   var iaRandom = random(0,2);
   let iaChoice = myTable[iaRandom];
@@ -78,25 +82,30 @@ function playerScissors() {
     if (iaChoice === "scissors") {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-scissors-solid.png" alt="scissors">';
       document.getElementById("result-text").innerHTML = "Egalité !";
+      count++;
     }
     if (iaChoice === "paper") {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-paper-solid.png" alt="paper">';
       document.getElementById("result-text").innerHTML = "Gagné !";
+      count++;
 
     }
     if (iaChoice === "rock") {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-rock-solid.png" alt="rock">';
       document.getElementById("result-text").innerHTML = "Perdu !";
-      lost();
+      tableScore.push([entry,count]);
+      displayBestScore();
+      count = 0;
     }
   }
   hist = iaChoice;
+
+  document.getElementById("nb-turns").innerHTML=count + " / 42";
 }
 
 function playerPaper() {
   document.getElementById("player-image").innerHTML='<img src="imgs/hand-paper-solid.png" alt="paper">';
-  count++;
-  document.getElementById("nb-turns").innerHTML=count + " / 42";
+
 
   var iaRandom = random(0,2);
   var iaChoice = myTable[iaRandom];
@@ -112,23 +121,31 @@ function playerPaper() {
     if (iaChoice === "paper") {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-paper-solid.png" alt="paper">';
       document.getElementById("result-text").innerHTML = "Egalité !"
+      count++;
     }
     if (iaChoice === "rock") {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-rock-solid.png" alt="rock">';
       document.getElementById("result-text").innerHTML = "Gagné !";
+      count++;
     }
     if (iaChoice === "rock") {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-scissors-solid.png" alt="scissors">';
       document.getElementById("result-text").innerHTML = "Perdu !";
-      lost();
+      tableScore.push([entry,count]);
+      displayBestScore();
+      count = 0;
     }
   }
     hist = iaChoice;
+
+  document.getElementById("nb-turns").innerHTML=count + " / 42";
 }
 
 function restart() {
   document.getElementById("ia-image").innerHTML ="";
   document.getElementById("player-image").innerHTML="";
+  tableScore.push([entry,count]);
+  displayBestScore();
   count = 0;
   document.getElementById("nb-turns").innerHTML="0 / 42";
   document.getElementById("result-text").innerHTML = "";
