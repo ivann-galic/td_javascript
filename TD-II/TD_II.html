@@ -85,13 +85,14 @@
 			for (let result of myTable){
 				html += '<div>';
 				html += result[0];
-				html += '</div><div>';
+				html += ' / ';
 				html += result[1];
 				html += '</div>';
 			}
-			html += '</div>';
+			
 			document.getElementById("table").innerHTML = html;
 
+/*
 				var html = '<div>';
 			myTable.forEach(function(result) { // [x,x]
 					html += '<div>';
@@ -106,6 +107,7 @@
 			});
 			html += '</div>';
 			document.getElementById("table").innerHTML = html;
+			*/
 		}
 
   </script>
