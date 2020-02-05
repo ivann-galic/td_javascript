@@ -1,10 +1,10 @@
-let myTable = ["rock", "scissors", "paper"];
-let entry;
-let count = 0;
+var myTable = ["rock", "scissors", "paper"];
+var entry = document.getElementById("data").value;
+var count = 0;
 var myTimer;
 var timeleft;
 var tableScore= [];
-let hist;
+var hist;
 
 function timer() {
   timeleft = 3;
@@ -52,8 +52,9 @@ function playerRock() {
       document.getElementById("ia-image").innerHTML ='<img src="imgs/hand-paper-solid.png" alt="paper">';
       document.getElementById("result-text").innerHTML ="Perdu !";
       restart();
-      count --;
+    
       tableScore.push([entry,count]);
+      displayBestScore();
       count = 0;
     }
   }
@@ -90,8 +91,9 @@ function playerScissors() {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-rock-solid.png" alt="rock">';
       document.getElementById("result-text").innerHTML = "Perdu !";
       restart();
-      count --;
+      
       tableScore.push([entry,count]);
+      displayBestScore();
       count = 0;
     }
   }
@@ -127,8 +129,9 @@ function playerPaper() {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-scissors-solid.png" alt="scissors">';
       document.getElementById("result-text").innerHTML = "Perdu !";
       restart();
-      count --;
+      
       tableScore.push([entry,count]);
+      displayBestScore();
       count = 0;
     }
   }
@@ -138,6 +141,8 @@ function playerPaper() {
 function restart() {
   document.getElementById("ia-image").innerHTML ="";
   document.getElementById("player-image").innerHTML="";
+  tableScore.push([entry,count]);
+  displayBestScore();
   count = 0;
   document.getElementById("nb-turns").innerHTML="0 / 42";
   document.getElementById("result-text").innerHTML = "";

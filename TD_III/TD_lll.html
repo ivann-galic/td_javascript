@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css" />
     <script src="https://kit.fontawesome.com/aa1f9c66ba.js" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
     <title>TD III </title>
 </head>
 <body>
@@ -56,16 +55,16 @@
         <div class="name-form">
           <form>
             <label class="label">Entrer votre nom :</label>
-            <input id="data" type="text"/>
+            <input id="data" type="text" value="Joueur" />
               <input id="submit-btn" type="button" value="Ok" onclick="displayName()"/>
           </form>
 
         </div>
         <div>
-            <button onclick="playerPaper();"><i class="fas fa-hand-paper"></i></button>
-            <button onclick="playerRock();"><i class="fas fa-hand-rock"></i></button>
-            <button onclick="playerScissors();"><i class="fas fa-hand-scissors"></i></button>
-            <button onclick="restart();"><i class="fas fa-redo-alt"></i></button>
+            <button onclick="playerPaper(); timer();"><i class="fas fa-hand-paper"></i></button>
+            <button onclick="playerRock();timer();"><i class="fas fa-hand-rock"></i></button>
+            <button onclick="playerScissors();timer();"><i class="fas fa-hand-scissors"></i></button>
+            <button onclick="restart();timer();"><i class="fas fa-redo-alt"></i></button>
         </div>
       </div>
     </div>
@@ -75,6 +74,6 @@
   <footer>
       <p class="footer-text">"Pierre, Feuille, Ciseaux by" by Ivann, Bryan, Yuyuan<p>
   </footer>
-
+  <script src="app.js"></script>
 </body>
 </html>
