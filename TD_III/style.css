@@ -18,7 +18,7 @@ body {
 	text-align: center;
 }
 .infos-card {
-	height: 300px;
+	min-height: 300px;
 	min-width: 150px;
 	background-color: #757575;
 	position: absolute;

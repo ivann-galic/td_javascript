@@ -12,9 +12,14 @@ function timer() {
   myTimer = setInterval(function(){
     document.getElementById("time").innerHTML = timeleft;
     timeleft -= 1;
+
     if(timeleft < 0 ){
       clearInterval(myTimer);
       document.getElementById("time").innerHTML = "Fini !"
+      if (tableScore.length == 5) {
+            tableScore.shift();
+
+          }
       lost();
     }
   }, 1000);
@@ -26,6 +31,7 @@ function random(min, max) {
 
 function playerRock() {
   document.getElementById("player-image").innerHTML='<img src="imgs/hand-rock-solid.png" alt="paper">';
+  
 
   var iaRandom = random(0,2);
   let iaChoice = myTable[iaRandom];
@@ -52,20 +58,24 @@ function playerRock() {
     if(iaChoice === "paper") {
       document.getElementById("ia-image").innerHTML ='<img src="imgs/hand-paper-solid.png" alt="paper">';
       document.getElementById("result-text").innerHTML ="Perdu !";
+      
+      if (tableScore.length == 5) {
+            tableScore.shift();
+          }
       tableScore.push([entry,count]);
       displayBestScore();
       count = 0;
     }
   }
-  hist = iaChoice;
-
-  document.getElementById("nb-turns").innerHTML=count + " / 42";
+    hist = iaChoice;
+    document.getElementById("nb-turns").innerHTML=count + " / 42";
 }
 
 
 
 function playerScissors() {
   document.getElementById("player-image").innerHTML='<img src="imgs/hand-scissors-solid.png" alt="scissors">';
+  
 
 
   var iaRandom = random(0,2);
@@ -88,23 +98,28 @@ function playerScissors() {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-paper-solid.png" alt="paper">';
       document.getElementById("result-text").innerHTML = "Gagné !";
       count++;
-
     }
     if (iaChoice === "rock") {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-rock-solid.png" alt="rock">';
       document.getElementById("result-text").innerHTML = "Perdu !";
+      
+      if (tableScore.length == 5) {
+            tableScore.shift();
+          }
       tableScore.push([entry,count]);
       displayBestScore();
       count = 0;
+    
     }
   }
   hist = iaChoice;
-
   document.getElementById("nb-turns").innerHTML=count + " / 42";
 }
 
 function playerPaper() {
   document.getElementById("player-image").innerHTML='<img src="imgs/hand-paper-solid.png" alt="paper">';
+  
+  
 
 
   var iaRandom = random(0,2);
@@ -131,14 +146,18 @@ function playerPaper() {
     if (iaChoice === "rock") {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-scissors-solid.png" alt="scissors">';
       document.getElementById("result-text").innerHTML = "Perdu !";
+      
+      if (tableScore.length == 5) {
+            tableScore.shift();
+          }
+
       tableScore.push([entry,count]);
       displayBestScore();
       count = 0;
     }
   }
     hist = iaChoice;
-
-  document.getElementById("nb-turns").innerHTML=count + " / 42";
+    document.getElementById("nb-turns").innerHTML=count + " / 42";
 }
 
 function restart() {
@@ -152,6 +171,8 @@ function restart() {
 }
 
 function lost() {
+  tableScore.push([entry,count]);
+  displayBestScore();
   count = 0;
   document.getElementById("nb-turns").innerHTML="0 / 42";
   document.getElementById("result-text").innerHTML = "Perdu !";
