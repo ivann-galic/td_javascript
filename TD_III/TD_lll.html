@@ -56,16 +56,16 @@
         <div class="name-form">
           <form>
             <label class="label">Entrer votre nom :</label>
-            <input id="data" type="string"/>
-              <input id="submit-btn" type="button" value="Ok" onclick="timer();"/>
+            <input id="data" type="text"/>
+              <input id="submit-btn" type="button" value="Ok" onclick="displayName()"/>
           </form>
 
         </div>
         <div>
-            <button onclick="playerPaper();"><i class="fas fa-hand-paper"></i></button>
-            <button onclick="playerRock();"><i class="fas fa-hand-rock"></i></button>
-            <button onclick="playerScissors();"><i class="fas fa-hand-scissors"></i></button>
-            <button onclick="restart(); timer();"><i class="fas fa-redo-alt"></i></button>
+            <button onclick="playerPaper(); timer();"><i class="fas fa-hand-paper"></i></button>
+            <button onclick="playerRock(); timer();"><i class="fas fa-hand-rock"></i></button>
+            <button onclick="playerScissors(); timer();"><i class="fas fa-hand-scissors"></i></button>
+            <button onclick="restart();"><i class="fas fa-redo-alt"></i></button>
         </div>
       </div>
     </div>
