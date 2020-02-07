@@ -174,6 +174,14 @@ function displayName() {
 }
 
 function displayBestScore(){
+  tableScore.sort(function(a,b){
+    if (a[1] == b[1]) {
+      return 0;
+    }
+    else {
+      return (a[1] > b[1]) ? -1 : 1;
+    }
+  });
       var html = '<div>';
       for (let result of tableScore){
         html += '<div>';
