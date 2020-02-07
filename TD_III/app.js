@@ -16,11 +16,12 @@ function timer() {
     if(timeleft < 0 ){
       clearInterval(myTimer);
       document.getElementById("time").innerHTML = "Fini !"
-      if (tableScore.length == 5) {
-            tableScore.shift();
 
-          }
-      lost();
+      tableScore.push([entry,count]);
+      displayBestScore();
+      count = 0;
+      //restart();
+
     }
   }, 1000);
 }
@@ -31,13 +32,12 @@ function random(min, max) {
 
 function playerRock() {
   document.getElementById("player-image").innerHTML='<img src="imgs/hand-rock-solid.png" alt="paper">';
-  
+
 
   var iaRandom = random(0,2);
   let iaChoice = myTable[iaRandom];
 
-
-    while (iaChoice === hist) {
+  while (iaChoice === hist) {
     iaRandom = random(0,2);
     iaChoice = myTable[iaRandom];
   }
@@ -58,24 +58,20 @@ function playerRock() {
     if(iaChoice === "paper") {
       document.getElementById("ia-image").innerHTML ='<img src="imgs/hand-paper-solid.png" alt="paper">';
       document.getElementById("result-text").innerHTML ="Perdu !";
-      
-      if (tableScore.length == 5) {
-            tableScore.shift();
-          }
+
       tableScore.push([entry,count]);
       displayBestScore();
       count = 0;
     }
   }
-    hist = iaChoice;
-    document.getElementById("nb-turns").innerHTML=count + " / 42";
+  hist = iaChoice;
+  document.getElementById("nb-turns").innerHTML=count + " / 42";
 }
 
 
 
 function playerScissors() {
   document.getElementById("player-image").innerHTML='<img src="imgs/hand-scissors-solid.png" alt="scissors">';
-  
 
 
   var iaRandom = random(0,2);
@@ -88,6 +84,8 @@ function playerScissors() {
 
   if(count === 42) {
     document.getElementById("result-text").innerHTML ="Perdu !";
+    clearInterval(myTimer);
+
   } else {
     if (iaChoice === "scissors") {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-scissors-solid.png" alt="scissors">';
@@ -102,14 +100,11 @@ function playerScissors() {
     if (iaChoice === "rock") {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-rock-solid.png" alt="rock">';
       document.getElementById("result-text").innerHTML = "Perdu !";
-      
-      if (tableScore.length == 5) {
-            tableScore.shift();
-          }
+
       tableScore.push([entry,count]);
       displayBestScore();
       count = 0;
-    
+
     }
   }
   hist = iaChoice;
@@ -118,17 +113,17 @@ function playerScissors() {
 
 function playerPaper() {
   document.getElementById("player-image").innerHTML='<img src="imgs/hand-paper-solid.png" alt="paper">';
-  
-  
+
 
 
   var iaRandom = random(0,2);
   var iaChoice = myTable[iaRandom];
 
   while (iaChoice === hist) {
-      iaRandom = random(0,2);
-      iaChoice = myTable[iaRandom];
-    }
+    iaRandom = random(0,2);
+    iaChoice = myTable[iaRandom];
+  }
+
 
   if(count === 42) {
     document.getElementById("result-text").innerHTML ="Perdu !";
@@ -146,36 +141,24 @@ function playerPaper() {
     if (iaChoice === "rock") {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-scissors-solid.png" alt="scissors">';
       document.getElementById("result-text").innerHTML = "Perdu !";
-      
-      if (tableScore.length == 5) {
-            tableScore.shift();
-          }
+
+
+
+
+
+
+
+
+
+
 
       tableScore.push([entry,count]);
       displayBestScore();
       count = 0;
     }
   }
-    hist = iaChoice;
-    document.getElementById("nb-turns").innerHTML=count + " / 42";
-}
-
-function restart() {
-  document.getElementById("ia-image").innerHTML ="";
-  document.getElementById("player-image").innerHTML="";
-  tableScore.push([entry,count]);
-  displayBestScore();
-  count = 0;
-  document.getElementById("nb-turns").innerHTML="0 / 42";
-  document.getElementById("result-text").innerHTML = "";
-}
-
-function lost() {
-  tableScore.push([entry,count]);
-  displayBestScore();
-  count = 0;
-  document.getElementById("nb-turns").innerHTML="0 / 42";
-  document.getElementById("result-text").innerHTML = "Perdu !";
+  hist = iaChoice;
+  document.getElementById("nb-turns").innerHTML=count + " / 42";
 }
 
 function displayName() {
@@ -184,14 +167,26 @@ function displayName() {
 }
 
 function displayBestScore(){
-      var html = '<div>';
-      for (let result of tableScore){
-        html += '<div>';
-        html += result[0];
-        html += ' / ';
-        html += result[1];
-        html += '</div>';
-      }
-      console.log(tableScore);
-      document.getElementById("score").innerHTML = html;
+  tableScore.sort(function(a,b){
+    if (a[1] == b[1]) {
+      return 0;
+    }
+    else {
+      return (a[1] > b[1]) ? -1 : 1;
+    }
+  });
+  console.log('before', tableScore);
+  if (tableScore.length > 5 ) {
+    tableScore.pop();
+  }
+  console.log('after', tableScore);
+  var html = '<div>';
+  for (let result of tableScore){
+    html += '<div>';
+    html += result[0];
+    html += ' / ';
+    html += result[1];
+    html += '</div>';
+  }
+  document.getElementById("score").innerHTML = html;
 }
