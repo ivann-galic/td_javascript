@@ -16,10 +16,11 @@ function timer() {
     if(timeleft < 0 ){
       clearInterval(myTimer);
       document.getElementById("time").innerHTML = "Fini !"
-      if (tableScore.length == 5) {
-            tableScore.shift();
-          }
-      restart();
+
+  tableScore.push([entry,count]);
+  displayBestScore();
+  count = 0;
+      //restart();
       
     }
   }, 1000);
@@ -58,9 +59,6 @@ function playerRock() {
       document.getElementById("ia-image").innerHTML ='<img src="imgs/hand-paper-solid.png" alt="paper">';
       document.getElementById("result-text").innerHTML ="Perdu !";
       
-      if (tableScore.length == 5) {
-            tableScore.shift();
-          }
       tableScore.push([entry,count]);
       displayBestScore();
       count = 0;
@@ -86,6 +84,8 @@ function playerScissors() {
 
   if(count === 42) {
     document.getElementById("result-text").innerHTML ="Perdu !";
+    clearInterval(myTimer);
+
   } else {
     if (iaChoice === "scissors") {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-scissors-solid.png" alt="scissors">';
@@ -101,9 +101,6 @@ function playerScissors() {
       document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-rock-solid.png" alt="rock">';
       document.getElementById("result-text").innerHTML = "Perdu !";
       
-      if (tableScore.length == 5) {
-            tableScore.shift();
-          }
       tableScore.push([entry,count]);
       displayBestScore();
       count = 0;
@@ -128,32 +125,38 @@ function playerPaper() {
     }
 
 
-  if(count === 42) {
-    document.getElementById("result-text").innerHTML ="Perdu !";
-  } else {
-    if (iaChoice === "paper") {
-      document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-paper-solid.png" alt="paper">';
-      document.getElementById("result-text").innerHTML = "Egalité !"
-      count++;
-    }
-    if (iaChoice === "rock") {
-      document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-rock-solid.png" alt="rock">';
-      document.getElementById("result-text").innerHTML = "Gagné !";
-      count++;
-    }
-    if (iaChoice === "rock") {
-      document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-scissors-solid.png" alt="scissors">';
-      document.getElementById("result-text").innerHTML = "Perdu !";
-      
-      if (tableScore.length == 5) {
-            tableScore.shift();
-          }
+    if(count === 42) {
+      document.getElementById("result-text").innerHTML ="Perdu !";
+    } else {
+      if (iaChoice === "paper") {
+        document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-paper-solid.png" alt="paper">';
+        document.getElementById("result-text").innerHTML = "Egalité !"
+        count++;
+      }
+      if (iaChoice === "rock") {
+        document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-rock-solid.png" alt="rock">';
+        document.getElementById("result-text").innerHTML = "Gagné !";
+        count++;
+      }
+      if (iaChoice === "rock") {  
+        document.getElementById("ia-image").innerHTML = '<img src="imgs/hand-scissors-solid.png" alt="scissors">';
+        document.getElementById("result-text").innerHTML = "Perdu !";
 
-      tableScore.push([entry,count]);
-      displayBestScore();
-      count = 0;
+
+
+
+
+
+
+
+
+
+
+        tableScore.push([entry,count]);
+        displayBestScore();
+        count = 0;
+      }
     }
-  }
     hist = iaChoice;
     document.getElementById("nb-turns").innerHTML=count + " / 42";
 }
@@ -161,8 +164,6 @@ function playerPaper() {
 function restart() {
   document.getElementById("ia-image").innerHTML ="";
   document.getElementById("player-image").innerHTML="";
-  tableScore.push([entry,count]);
-  displayBestScore();
   count = 0;
   document.getElementById("nb-turns").innerHTML="0 / 42";
   document.getElementById("result-text").innerHTML = "";
@@ -182,6 +183,11 @@ function displayBestScore(){
       return (a[1] > b[1]) ? -1 : 1;
     }
   });
+console.log('before', tableScore);
+  if (tableScore.length > 5 ) {
+    tableScore.pop();
+  }
+      console.log('after', tableScore);
       var html = '<div>';
       for (let result of tableScore){
         html += '<div>';
@@ -190,6 +196,5 @@ function displayBestScore(){
         html += result[1];
         html += '</div>';
       }
-      console.log(tableScore);
       document.getElementById("score").innerHTML = html;
 }
